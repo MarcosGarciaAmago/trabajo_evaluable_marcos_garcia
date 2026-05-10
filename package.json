@@ -1,0 +1,12 @@
+{
+  "name": "trabajo-evaluable-marcos-garcia",
+  "version": "1.0.0",
+  "description": "Actividad 2 evaluacion - polizas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

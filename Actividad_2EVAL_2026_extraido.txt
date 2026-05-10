@@ -1,0 +1,141 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Centro Integrado de Formación Profesional 
+AVILÉS 
+Principado de Asturias 
+ 
+ 
+ 
+ 
+ 
+ACTIVIDAD INDIVIDUAL  
+SEGUNDA EVALUACIÓN 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+DISEÑO WEB EN ENTORNO CLIENTE 
+ 
+2º CURSO 
+C.F.G.S. DESARROLLO DE APLICACIONES WEB 
+ 
+
+
+Centro Integrado de Formación Profesional Avilés  
+Desarrollo Web en Entorno Cliente 
+Actividad individual – 2ª evaluación 
+ 
+  
+ 
+1 
+ 
+1. UNIDADES QUE SE TRABAJAN EN ESTA ACTIVIDAD 
+ 
+[UT5] Bibliotecas y Frameworks: React 
+[UT6] Componentes y objetos predefinidos 
+[UT7] Interacción con el usuario: eventos y formularios 
+[UT8] Comunicación asíncrona 
+2. INTRODUCCIÓN 
+ 
+Se desea desarrollar una aplicación web para el seguimiento  de pólizas de seguro de automóvil y 
+sus caracte rísticas técnicas, basada en una serie de datos  sobre pólizas de coche, que contiene 
+información como antigüedad de la póliza, edad del vehículo, edad del tomador, tipo de motor, 
+cilindrada, equipamiento de s eguridad y si la póliza ha tenido o no un siniestro declarado . La 
+aplicación se desarrollará con React en el frontend y Node.js (con Express) como backend, 
+intercambiando datos en formato JSON mediante peticiones asíncronas. 
+3. GESTIÓN DE PÓLIZAS 
+ 
+La aplicación debe ser capaz de gestionar l as pólizas de seguro presentes en el sistema.  Se da por 
+hecho que es una aplicación interna que no será publicada al exterior, por lo que no requerirá una 
+autenticación previa. Se proporciona un archivo JSON con una serie de registros que deben ser 
+precargados al abrir la aplicación. El backend debe encargarse de modificar este archivo. Se deben 
+implementar las siguientes funcionalidades: 
+ 
+1. Consultar todas las pólizas del sistema, visualizándolas en una tabla. Cada póliza debe mostrar 
+al menos: 
+ id_poliza: Identificador único de la póliza. 
+ vigencia: Tiempo de vigencia de la póliza en meses.  
+ matricula: Matrícula del coche. 
+ edad_coche: Edad del coche. 
+ edad_tomador: Edad del tomador. 
+ cilindrada: Cilindrada del motor en centímetros cúbicos. 
+ cilindros: Número de cilindros del motor. 
+ transmision: Solo admite dos valores: Automática o Manual. 
+ comb_electrico: Si el vehículo es de combustión o eléctrico. 
+ peso: Peso del vehículo en Kgs. 
+ siniestro: Si la póliza ha tenido un siniestro, su valor es 1; 0 en caso contrario. En el interfaz 
+debe mostrarse en forma legible (Sí / No).  
+2. Alta manual de una nueva póliza, mediante un formulario que permita introducir todos los 
+campos.  
+3. Eliminación de una póliza. O bien introduciendo el id_poliza en un formulario o mediante botón 
+de eliminación en la tabla en la que se consultan las pólizas. 
+4. Actualización de una póliza existente: 
+ La búsqueda y selección para editar se hará a partir de id_poliza. 
+ No se permitirá modificar ni id_poliza ni matrícula del vehículo.  
+
+Centro Integrado de Formación Profesional Avilés  
+Desarrollo Web en Entorno Cliente 
+Actividad individual – 2ª evaluación 
+ 
+  
+ 
+2 
+ 
+En el servidor Node.js se crearán endpoints REST que devuelvan y reciban datos en formato JSON: 
+ GET /polizas – Devuelve el listado de pólizas. 
+ GET /polizas/:id_poliza – Devuelve la información detallada de una póliza. 
+ POST /polizas – Da de alta una nueva póliza. 
+ PUT /polizas/ – Modifica una póliza existente. 
+ DELETE /polizas/:id_poliza – Elimina una póliza. 
+ 
+Los datos se almacenarán en un fichero JSON al que solo se puede acceder mediante el backend.  
+Por otra parte, debe incluir las siguientes validaciones de los datos introducidos en el formulario: 
+1. El identificador de póliza debe tener 7 caracteres siguiendo el formato a continuación: 
+IDXXXXX donde XXXXX es un número de 5 dígitos. Comprobarlo mediante expresiones 
+regulares. 
+2. Todos los campos son obligatorios. 
+3. Los meses de vigencia de la póliza deben ser mínimo 1 y máximo 21. 
+4. La matrícula debe cumplir con el formato español: 4 números y 3 letras sin separación entre 
+ambos. Las letras deben limitarse a las siguientes: B, C, D, F, G, H, J, K, L, M, N, P, R, S, T, V, 
+W, X, Y, Z (usar expresiones regulares). 
+5. La edad del coche debe estar entre 0 y 10. 
+6. El usuario debe ser mayor de edad, es decir, a la fecha actual no tener menos de 18 años y un 
+máximo de 90 años. 
+7. transmision y comb_electrico deben limitarse a sus propios valores. 
+8. Las expresiones regulares de validación deben almacenarse en variables de contexto (React 
+Context). 
+4. ESTADÍSTICAS 
+ 
+Además de la consulta individual de pólizas, la aplicación debe mostrar estadísticas agregadas 
+sobre un subconjunto de los datos, filtrando por tipo de transmisión, si es combustible o eléctrico y 
+si ha tenido o no un siniestro. Se deberán implementar al menos las siguientes estadísticas: 
+ Para un filtro seleccionado por el usuario (p.ej. tipo de combustible): 
+o Número total de pólizas en el filtro. 
+o Porcentaje de pólizas con siniestro frente a las que no tienen.  
+ Estadísticas sobre variables numéricas: 
+o Valor medio de edad de coche para el subconjunto filtrado. 
+o Valor medio de edad del tomador. 
+ 
+Las estadísticas se deben calcular en el backend.  
+5. ENTREGA DE LA PRÁCTICA 
+ 
+La práctica  se entregará como un archivo comprimido excluyendo el directorio node_modules. 
+Además, estará completamente alojada en un repositorio de GitHub. La actividad puede estar 
+subida progresivamente a l repositorio  para poder ver el trabajo realizado durante toda la 
+evaluación.  
